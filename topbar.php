@@ -10,8 +10,8 @@
     <div class="container">
         <a class="navbar-brand me-2" href="./">
             <img
-            src="./img/machine-learning-logo-png.jpg"
-            height="50"
+            src= "https://www.pngkey.com/png/full/314-3143637_your-guide-to-machine-learning-machine-learning.png"
+            height="75"
             alt=""
             loading="lazy"  
             />
@@ -22,38 +22,34 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <div class="nav_list" > <a href="./ListUsers.php" class="navbar-brand"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Usuarios</span> </a></div>
+                <div class="nav_list" > <a href="./ListUsers.php" class="navbar-brand"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a></div>
             </ul>
-            <div class="col-auto" style="margin-top: 1%;">
+            <div class="col-auto"">
                 <!--Button for modal-->
                 <?php
                     if(isset($_SESSION['loged'])) {
                         if($_SESSION['loged']) {
-                            echo("<button type='button' class='btn btn-primary' onclick=\"location.href='./ResultLogUser.php'\"> Cerrar Sesion </button>");   
-
+                            // Logout Button
+                            echo("<button type='button' class='btn btn-primary' onclick=\"location.href='./ResultLogUser.php'\"> Log Out </button>");   
                         } else {
-                            echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
-                            include ("./LogUser.html");
+                            echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Sign In  </button>");
+                            include ("./LogUser.html"); // Login Modal
                         }
                     } else {
                         $_SESSION['loged'] = false;
-                        echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
-                        include ("./LogUser.html");
+                        echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Sign In </button>");
+                        include ("./LogUser.html"); // Login modal
                     }
                 ?>  
-                <!--Login Modal-->
-                
-                
-                <!--Button for modal-->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarModal">
-                    Registrar
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    Register
                 </button>
                 <!--Modal-->
-                <div class="modal fade" id="registrarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog"  style="margin-top: 5%;">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="registrarModalLabel">Registrar Usuario</h5>
+                                <h5 class="modal-title" id="registerModalLabel">Sign Up User</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">

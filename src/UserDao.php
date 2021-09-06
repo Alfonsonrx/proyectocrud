@@ -17,14 +17,14 @@ class UserDao implements CRUD {
             $Conn = $con->Connect();
             $Conn->query("INSERT INTO `usuarios`(`idusuario`, `nombreusuario`, `passwordusuario`, `nombrereal`, `email`, `Phone`) VALUES ('NULL','$un','$pw','$n','$em','$ph')");
             if($Conn->errno) {
-				echo "Ha fallado la conexion a MySQL: (" . $Conn->errno . " ) " . $Conn->error;
-                $status = "Ha ocurrido un error al ingresar";
+				echo "Connection failed, MySQL: (" . $Conn->errno . " ) " . $Conn->error;
+                $status = "Error to Connect";
 			} else {
-                $status = "Ha sido ingresado exitosamente";
+                $status = "Succesfully inserted";
             }
         }catch(Exception $e) {
             echo "Error: ", $e->getMessage();
-            $status = "Ha ocurrido un error al ingresar";
+            $status = "Insert error";
         }
         return $status;
     }
@@ -72,11 +72,11 @@ class UserDao implements CRUD {
         $ph = $user->GetPhone(); // Get the phone
         try {
             $Conn = $con->Connect();
-            $Conn->query("UPDATE `usuarios` SET `nombreusuario`=$un,`passwordusuario`=$pw,`nombrereal`=$n,`email`=$em,`Phone`=$ph WHERE `idusuario`=$id)");
-            $status = "Ha sido actualizado exitosamente";
+            $Conn->query("UPDATE `usuarios` SET `nombreusuario`='$un',`passwordusuario`='$pw',`nombrereal`='$n',`email`='$em',`Phone`='$ph' WHERE idusuario='$id'") or die($Conn->error);
+            $status = "Succesfully Updated";
         }catch(Exception $e) {
             echo "Error: ", $e->getMessage();
-            $status = "Ha ocurrido un error al actualizar";
+            $status = "Update error";
         }
         return $status;
     }
@@ -88,10 +88,10 @@ class UserDao implements CRUD {
         try {
             $Conn = $con->Connect();
             $Conn->query("DELETE FROM `usuarios` WHERE `idusuario`=$id");
-            $status = "Ha sido actualizado exitosamente";
+            $status = "Sucessfully Deleted";
         }catch(Exception $e) {
             echo "Error: ", $e->getMessage();
-            $status = "Ha ocurrido un error al actualizar";
+            $status = "Delete error, try later";
         }
         return $status;
     }

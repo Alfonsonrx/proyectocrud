@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Users List - CRUDLearn</title>
     </head>
     <body>
         <?php
@@ -34,16 +34,16 @@
                             for($i=0;$i<count($list);$i++) {
                                 $user = $list[$i];
                         ?>
-                        <!--Tabla de Usuarios-->
+                        <!--Users Table-->
                         <tr>
                             <td><?php echo($user->GetId()); ?></td>
                             <td><?php echo($user->GetUsername()); ?></td>
                             <td><?php echo($user->GetName()); ?></td>
                             <td><?php echo($user->GetEmail()); ?></td>
                             <td><?php echo($user->GetPhone()); ?></td>
-                            <!-- Muestra los botones que redirigen a editar o eliminar al usuario segun su id -->
-                            <td><a href='./EditUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Editar</a> </td>
-                            <td><a href='./DelUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Eliminar</a> </td>
+                            <!-- Edit and Delete buttons by id -->
+                            <td><a href='./EditUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Edit</a> </td>
+                            <td><a href='./DelUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Delete</a> </td>
                         </tr>
                         <?php 
                             }

@@ -18,9 +18,8 @@
 					$result = $DAO->delete($id); 
                     echo("<h2> $result </h2>");
                 ?>
-                <h3>Vuelve a inicio o a la lista de usuarios</h3>
-                <button type="button" class="btn btn-primary mb-3"><a href="/">Volver A Inicio</a></button>
-                <button type="button" class="btn btn-primary mb-3"><a href="./ListUsers.php">Volver A Lista</a></button>
+                <button type="button" class="btn btn-primary mb-3"><a href="/">Go to home</a></button>
+                <button type="button" class="btn btn-primary mb-3"><a href="./ListUsers.php">Go to users list</a></button>
             </div>
         </center>
     </body>
