@@ -7,10 +7,10 @@
     </head>
     <body>
         <?php
+        require __DIR__ . '/vendor/autoload.php';
+        use App\UserDao;
 
-use App\UserDao;
-
-include "topbar.php"; ?>
+        include "topbar.php"; ?>
         
         
         <center>
@@ -28,20 +28,26 @@ include "topbar.php"; ?>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php   
                             $DAO = new UserDao();
+                            $list = $DAO->list();
+                            for($i=0;$i<count($list);$i++) {
+                                $user = $list[$i];
                         ?>
                         <!--Tabla de Usuarios-->
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo($user->GetId()); ?></td>
+                            <td><?php echo($user->GetUsername()); ?></td>
+                            <td><?php echo($user->GetName()); ?></td>
+                            <td><?php echo($user->GetEmail()); ?></td>
+                            <td><?php echo($user->GetPhone()); ?></td>
                             <!-- Muestra los botones que redirigen a editar o eliminar al usuario segun su id -->
                             <td><a href='#>'><i class='bx bx-pencil nav_icon'></i> Editar</a> </td>
                             <td><a href='#'><i class='bx bx-pencil nav_icon'></i> Eliminar</a> </td>
                         </tr>
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>

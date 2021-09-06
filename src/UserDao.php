@@ -29,7 +29,7 @@ class UserDao implements CRUD {
         return $status;
     }
 
-    public function listar()
+    public function list()
     {
         $list = array();
         $con = new ConnConfig;
