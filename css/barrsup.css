@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24-06-2021, 02:40:09
+    Author     : damia
+*/
+
+
+.btn-primary {
+    color: #fff !important;
+}
+a {
+    text-decoration: none !important;
+    color: green !important;
+}
+button a {
+    color: #fff !important;
+}

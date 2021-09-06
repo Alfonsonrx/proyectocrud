@@ -1,0 +1,12 @@
+{
+    "name": "nerox/proyecto-crud",
+    "type": "project",
+    "require": {
+        "ext-mysqli": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
