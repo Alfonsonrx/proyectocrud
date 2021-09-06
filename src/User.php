@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-class Usuario {
+class User {
     public $id;
     public $username;
     protected $password;
@@ -30,7 +30,7 @@ class Usuario {
         $this->username = $username;
     }
 
-    public function GetUsername() {
+    public function getUsername() {
         return $this->username;
     }
 

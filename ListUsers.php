@@ -6,7 +6,11 @@
         <title>Document</title>
     </head>
     <body>
-        <?php include "topbar.php"; ?>
+        <?php
+
+use App\UserDao;
+
+include "topbar.php"; ?>
         
         
         <center>
@@ -24,6 +28,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $DAO = new UserDao();
+                        ?>
                         <!--Tabla de Usuarios-->
                         <tr>
                             <td></td>

@@ -1,4 +1,4 @@
-<form class="row g-3" action="ingresarDatos.jsp" method="get">
+<form class="row g-3" action="ResultCreateUser.php" method="post">
 	<div class="mb-3">
 		<label class="form-label">Nombre de Usuario</label>
 		<input type="text" class="form-control" placeholder="Nombre de Usuario" name="username">
@@ -9,15 +9,15 @@
 	</div>
 	<div class="mb-3">
 		<label class="form-label">Nombre Real</label>
-		<input type="text" class="form-control" placeholder="Nombre Real" name="nombre">
+		<input type="text" class="form-control" placeholder="Nombre Real" name="name">
 	</div>
 	<div class="mb-3">
 		<label class="form-label">Correo</label>
-		<input type="text" class="form-control" placeholder="ejemplo@ejemplo.ej" name="correo">
+		<input type="text" class="form-control" placeholder="ejemplo@ejemplo.ej" name="email">
 	</div>
 	<div class="mb-3">
 		<label class="form-label">Telefono</label>
-		<input type="text" class="form-control" placeholder="+56960006000" name="telefono">
+		<input type="text" class="form-control" placeholder="+56960006000" name="phone">
 	</div>
 	<div class="col-auto">
 		<input type="submit" class="btn btn-primary mb-3" value="Registrar">

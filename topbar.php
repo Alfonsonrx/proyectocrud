@@ -3,7 +3,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/barrsup.css">
 </head>
-
+<?php
+    session_start();
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand me-2" href="./">
@@ -20,14 +22,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <div class="nav_list" > <a href="./ListarUsuarios.php" class="navbar-brand"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Usuarios</span> </a></div>
+                <div class="nav_list" > <a href="./ListUsers.php" class="navbar-brand"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Usuarios</span> </a></div>
             </ul>
             <div class="col-auto">
                 <!--Button for modal-->
                 <?php
-                    
-                ?>
-                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>
+                    if(isset($_SESSION['loged'])) {
+                        if($_SESSION['loged'] != null) {
+                            echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Cerrar Sesion </button>");              
+                        } else {
+                            echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
+                        }
+                    } else {
+                        $_SESSION['loged'] = null;
+                        echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
+                    }
+                ?>  
                 <!--Login Modal-->
                 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog"  style="margin-top: 10%;">
@@ -37,7 +47,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <?php include ("./ingresarUsuario.php");?>
+                                <?php include ("./LogUser.php");?>
                             </div>
                         </div>
                     </div>
