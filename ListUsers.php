@@ -42,8 +42,8 @@
                             <td><?php echo($user->GetEmail()); ?></td>
                             <td><?php echo($user->GetPhone()); ?></td>
                             <!-- Muestra los botones que redirigen a editar o eliminar al usuario segun su id -->
-                            <td><a href='#>'><i class='bx bx-pencil nav_icon'></i> Editar</a> </td>
-                            <td><a href='#'><i class='bx bx-pencil nav_icon'></i> Eliminar</a> </td>
+                            <td><a href='./EditUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Editar</a> </td>
+                            <td><a href='./DelUser.php?id=<?php echo($user->GetId()); ?>'><i class='bx bx-pencil nav_icon'></i> Eliminar</a> </td>
                         </tr>
                         <?php 
                             }

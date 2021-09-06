@@ -15,11 +15,11 @@
             <div style="margin-top: 20%;">
             <!-- Se condiciona si hay un usuario logeado ya -->
             <?php
-                $username = $_REQUEST['username'];
-                $password = $_REQUEST['password'];
-                $name = $_REQUEST['name'];
-                $email = $_REQUEST['email'];
-                $phone = $_REQUEST['phone'];
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+                $name = $_POST['name'];
+                $email = $_POST['email'];
+                $phone = $_POST['phone'];
 
                 $user = new User(null, $username, $password, $name, $email, $phone);
 
@@ -30,7 +30,7 @@
             ?>
             <h3>Vuelve a inicio o a la lista de usuarios</h3> <br>
             <button type="button" class="btn btn-primary mb-3"><a href="./">Volver A Inicio</a></button>
-            <button type="button" class="btn btn-primary mb-3"><a href="./ListarUsuario.php">Volver A Lista</a></button>
+            <button type="button" class="btn btn-primary mb-3"><a href="./ListUsers.php">Volver A Lista</a></button>
             </div>
         </center>
     </body>

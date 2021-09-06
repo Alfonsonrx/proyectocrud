@@ -24,34 +24,25 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <div class="nav_list" > <a href="./ListUsers.php" class="navbar-brand"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Usuarios</span> </a></div>
             </ul>
-            <div class="col-auto">
+            <div class="col-auto" style="margin-top: 1%;">
                 <!--Button for modal-->
                 <?php
                     if(isset($_SESSION['loged'])) {
-                        if($_SESSION['loged'] != null) {
-                            echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Cerrar Sesion </button>");              
+                        if($_SESSION['loged']) {
+                            echo("<button type='button' class='btn btn-primary' onclick=\"location.href='./ResultLogUser.php'\"> Cerrar Sesion </button>");   
+
                         } else {
                             echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
+                            include ("./LogUser.html");
                         }
                     } else {
-                        $_SESSION['loged'] = null;
+                        $_SESSION['loged'] = false;
                         echo("<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#loginModal'> Ingresar </button>");
+                        include ("./LogUser.html");
                     }
                 ?>  
                 <!--Login Modal-->
-                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog"  style="margin-top: 10%;">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="loginModalLabel">Ingresar como Usuario</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <?php include ("./LogUser.php");?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 
                 <!--Button for modal-->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarModal">
@@ -67,7 +58,7 @@
                             </div>
                             <div class="modal-body">
                                 <?php
-                                    include "CreateUser.php";
+                                    include "CreateUser.html";
                                 ?>
                             </div>
                         </div>

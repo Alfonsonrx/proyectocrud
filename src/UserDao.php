@@ -46,6 +46,21 @@ class UserDao implements CRUD {
         return $list;
     }
     
+    public function read($id)
+    {
+        $con = new ConnConfig;
+        try {
+            $Conn = $con->Connect();
+            $rs = $Conn->query("SELECT * FROM `usuarios` WHERE `idusuario`=$id");
+            while($row = $rs->fetch_assoc()) {
+                $user = new User($row['idusuario'], $row['nombreusuario'], $row['passwordusuario'], $row['nombrereal'], $row['email'], $row['Phone']);
+            }
+        } catch(Exception $e) {
+            echo "Error: ", $e->getMessage();
+        }
+        return $user;
+    }
+
     public function update($id, $user)
     {
         $con = new ConnConfig;
@@ -86,9 +101,10 @@ class UserDao implements CRUD {
         $con = new ConnConfig;
         try {
             $Conn = $con->Connect();
-            $rs = $Conn->query("SELECT * FROM usuarios WHERE email=$email");
-            $row = $rs;
-            $user = new User($row['idusuario'], $row['nombreusuario'], $row['passwordusuario'], $row['nombrereal'], $row['email'], $row['Phone']);
+            $rs = $Conn->query("SELECT * FROM `usuarios` WHERE `email` = '$email'") or die($Conn->error);
+            while($row = $rs->fetch_assoc()) {
+                $user = new User($row['idusuario'], $row['nombreusuario'], $row['passwordusuario'], $row['nombrereal'], $row['email'], $row['Phone']);
+            }
         }catch(Exception $e) {
             echo "Error: ", $e->getMessage();
         }

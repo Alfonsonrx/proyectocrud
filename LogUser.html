@@ -1,13 +1,25 @@
-<form class="row g-3" action="ResultLogUser.php" method="post">
-    <div class="mb-3">
-        <label class="form-label">Correo</label>
-        <input type="text" class="form-control" placeholder="Correo" name="email">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Ingresar como Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="row g-3" action="ResultLogUser.php" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Correo</label>
+                        <input type="text" class="form-control" placeholder="Correo" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" class="btn btn-primary mb-3" value="Logearse">
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Contraseña</label>
-        <input type="password" class="form-control" placeholder="Contraseña" name="password">
-    </div>
-    <div class="col-auto">
-        <input type="submit" class="btn btn-primary mb-3" value="Logearse">
-    </div>
-</form>
+</div>
